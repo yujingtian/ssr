@@ -15,11 +15,10 @@ export default context=>{
             {
                 return reject({code:404})
             }
-            
+
             Promise.all(matchedComponents.map(component => {
                 if(component.asyncData)
                 {
-                    console.log("要开始了")
                     return component.asyncData({store})
                 }
             })).then((res)=>{
