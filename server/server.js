@@ -1,16 +1,40 @@
 const Koa = require("koa")
 const send = require("koa-send")
 const path = require("path")
+const { checkCookie } = require("./api/gate")
+const KoaBody = require("koa-body")
+const { sessionConfig } = require("./api/config")
+
 const app = new Koa()
 
 const staticRouter = require("./routers/static")
 
 const isDev = process.env.NODE_ENV === "development"
 
+const session = require('koa-session');
+
+let sessions = {}
+
+app.keys = ['123456a'];      
+
+app.use(session(sessionConfig, app));
+
+app.use(KoaBody({
+    multipart:true
+}))
 app.use(async (ctx, next)=>{
     try{
         console.log(`require with path ${ctx.path}`)
-        await next()
+        if(ctx.path.indexOf("/api/prefetch") === 0){
+            await next()
+        }
+        else if(ctx.path.indexOf("/api/") === 0){
+            if(checkCookie(ctx)){
+                await next()
+            }
+        }else{
+            await next()
+        }
     }   
     catch(err){
         console.log(err)
@@ -36,6 +60,11 @@ app.use(async (ctx, next) => {
 
 
 app.use(staticRouter.routes()).use(staticRouter.allowedMethods())
+
+const apiRouter = require("./api")
+
+app.use(apiRouter.routes()).use(apiRouter.allowedMethods())
+
 
 let pageRouter
 if (isDev) {
