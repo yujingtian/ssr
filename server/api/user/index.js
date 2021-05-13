@@ -33,6 +33,16 @@ userRouter.post("/login",async (ctx) => {
     }
 })
 
+userRouter.post("/logout", async (ctx) => {
+    if(ctx.cookies.get("watchSessionId")){
+        ctx.session[ctx.cookies.get("watchSessionId")] = null
+        ctx.cookies.set("watchSessionId", '',{signed:false,maxAge:0})
+        ctx.body = commonResponse.successResponse()
+    }else{
+        ctx.body = commonResponse.errorResponse()    
+    }
+})
+
 userRouter.post("/getsession", async(ctx) => {
     if(ctx.session[ctx.cookies.get("watchSessionId")]){
         const data = ctx.session[ctx.cookies.get("watchSessionId")]

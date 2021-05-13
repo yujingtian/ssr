@@ -1,10 +1,13 @@
 <template>
     <div class="header">
         <div class="header_left"></div>
-        <div class="header_right">{{$store.state.username}}</div>
+        <div class="header_right">{{$store.state.username}}   
+            <div @click="logout" style="margin-left:15px;cursor:pointer">退出</div>
+        </div>
     </div>
 </template>
 <script>
+import { logout } from "../api" 
 export default {
     data(){
         return{
@@ -12,6 +15,15 @@ export default {
         }
     },
     created(){
+    },
+    methods:{
+        logout(){
+            logout().then(res => {
+                if(res.code === 10000){
+                    this.$router.push("/login")
+                }
+            })
+        }
     }
 }
 </script>
@@ -27,5 +39,6 @@ export default {
     padding-right 20px
     color white
     font-size 16px
+    display flex
 }
 </style>

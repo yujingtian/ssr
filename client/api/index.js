@@ -8,6 +8,13 @@ export function login(data){
     })
 }
 
+export function logout(){
+    return http.request({
+        url: "user/logout",
+        method: "post",
+    })
+}
+
 export function getSession(){
     return http.request({
         url: "user/getsession",
