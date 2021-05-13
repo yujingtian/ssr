@@ -1,0 +1,112 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+body {
+  background-size: cover;
+  background-position: center;
+  font: 14px 'microsoft yahei';
+  color: '#4d4d4d';
+  font-weight: 300;
+}
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.inputItem {
+  width: 33%;
+  display: inline-block;
+}
+.inputItem label {
+  display: inline-block;
+  width: 40%;
+  text-align: right;
+  margin-right: 15px;
+}
+.inputItem input,
+.inputItem select {
+  display: inline-block;
+  width: 55%;
+  height: 30px;
+  cursor: text;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  border-radius: 3px;
+  border: 1px solid #e7eaec;
+  padding-left: 10px;
+}
+.buttonGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  margin-top: 15px;
+}
+.button-search {
+  background-color: #5a8cff;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.button-reset {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+.condition {
+  background: #fff;
+  padding: 20px;
+}
+.tableList {
+  background: #fff;
+  padding: 15px;
+  margin-top: 10px;
+}
+.tableContainer {
+  border: 1px solid #eee;
+  min-height: 500px;
+}
+.tablestyle {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.tablestyle th {
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee;
+  padding: 8px;
+  height: 40px;
+}
+.tablestyle td {
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee;
+  padding: 8px;
+  word-wrap: break-word;
+  word-break: normal;
+}
+.nodata {
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #f9f9f9;
+}
