@@ -14,7 +14,7 @@
     "dev": "concurrently \"npm run dev:client\"  \"npm run dev:server\"",
     "start": "cross-env NODE_ENV=production node server/server.js"
   },
-  "author": "Jasonccj",
+  "author": "yujingtian",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
